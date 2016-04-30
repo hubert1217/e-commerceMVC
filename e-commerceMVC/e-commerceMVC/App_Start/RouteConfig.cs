@@ -26,6 +26,15 @@ namespace e_commerceMVC
                 );
 
             routes.MapRoute(
+                name: "ProductList",
+                url: "gatunki/{genername}",
+                defaults: new { controller = "Store", action = "List" },
+                constraints: new { genername = @"[w& ]+"}
+                );
+
+
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
