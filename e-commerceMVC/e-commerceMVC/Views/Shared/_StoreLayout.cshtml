@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -22,20 +21,28 @@
                 <span></span>
             </a>
         </div>
-        <a id="main-header-logo" href="">
+        <a id="main-header-logo" href="@Url.Content("~/")">
             <img src="../Content/Images/logo3.png" class="center" />
         </a>
     </header>
-    <div> 
+    <div>
         @RenderBody()
     </div>
     <footer>
         <nav>
             <ul>
-                <li><a href="">O nas</a></li>
-                <li><a href="">Kontakt</a></li>
-                <li><a href="">Wysyłka</a></li>
-                <li><a href="">Regulamin</a></li>
+                <li>
+                    @Html.ActionLink("O nas", "StaticContent", "Home", new { viewname = "onas" }, null)
+                </li>
+                <li>
+                    @Html.ActionLink("Kontakt", "StaticContent", "Home", new { viewname = "kontakt" }, null)
+                </li>
+                <li>
+                    @Html.ActionLink("Wysyłka", "StaticContent", "Home", new { viewname = "wysylka" }, null)
+                </li>
+                <li>
+                    @Html.ActionLink("Regulamin", "StaticContent", "Home", new { viewname = "regulamin" }, null)
+                </li>
             </ul>
         </nav>
 
@@ -43,6 +50,6 @@
             Copyright &copy; 2016 ProCPUforYOU
         </div>
     </footer>
-    @RenderSection("ScriptsBottom", required:false)
+    @RenderSection("ScriptsBottom", required: false)
 </body>
 </html>
