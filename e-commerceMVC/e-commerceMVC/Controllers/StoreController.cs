@@ -14,5 +14,17 @@ namespace e_commerceMVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        public ActionResult List(string genername)
+        {
+            return View();
+        }
+
+
 	}
 }
