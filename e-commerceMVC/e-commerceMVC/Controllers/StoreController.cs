@@ -20,7 +20,7 @@ namespace e_commerceMVC.Controllers
             return View();
         }
 
-        public ActionResult List(string genername)
+        public ActionResult List(string kategoryname)
         {
             return View();
         }
