@@ -9,6 +9,20 @@ namespace e_commerceMVC.DAL
 {
     public class StoreContext:DbContext
     {
+
+        public StoreContext() : base("StoreContext") 
+        { 
+            
+        }
+
+
+        static StoreContext() 
+        {
+            Database.SetInitializer<StoreContext>(new StoreInitializer());
+        }
+
+
+
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Kategory> Kategories { get; set; }
