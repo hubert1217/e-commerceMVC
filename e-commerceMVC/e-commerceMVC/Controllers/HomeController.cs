@@ -18,7 +18,7 @@ namespace e_commerceMVC.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            //Kategory nowa = new Kategory{ Name="Laptopy",Description="Opis kategorii",IconFileName="1.png" };
+            //Kategory nowa = new Kategory { Name = "Laptopy", Description = "Opis kategorii", IconFileName = "1.png" };
             //db.Kategories.Add(nowa);
             //db.SaveChanges();
 

@@ -16,7 +16,7 @@ namespace e_commerceMVC.DAL
         }
 
 
-        static StoreContext() 
+        static StoreContext()
         {
             Database.SetInitializer<StoreContext>(new StoreInitializer());
         }
