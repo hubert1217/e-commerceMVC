@@ -1,4 +1,5 @@
-﻿using System;
+﻿using e_commerceMVC.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,10 @@ namespace e_commerceMVC.Controllers
 {
     public class StoreController : Controller
     {
+
+        StoreContext db = new StoreContext();
+        
+        
         //
         // GET: /Store/
         public ActionResult Index()
@@ -17,14 +22,30 @@ namespace e_commerceMVC.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+
+            var product = db.Products.Find(id);
+
+
+            return View(product);
         }
 
         public ActionResult List(string kategoryname)
         {
-            return View();
+            var kategory = db.Kategories.Include("Products").Where(g => g.Name.ToUpper() == kategoryname.ToUpper()).Single();
+            var products = kategory.Products.ToList();
+
+            return View(products);
         }
 
+        [ChildActionOnly]
+        public ActionResult KategoriesMenu() 
+        {
+
+            var kategories = db.Kategories.ToList();
+
+
+            return PartialView("_KategoriesMenu",kategories);
+        }
 
 	}
 }

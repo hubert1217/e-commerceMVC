@@ -178,6 +178,10 @@
     <Content Include="Views\Home\Onas.cshtml" />
     <Content Include="Views\Home\Regulamin.cshtml" />
     <Content Include="Views\Home\Wysylka.cshtml" />
+    <Content Include="Views\Store\_KategoriesMenu.cshtml" />
+    <Content Include="Views\Store\List.cshtml" />
+    <Content Include="Views\Store\_ProductList.cshtml" />
+    <Content Include="Views\Store\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -187,7 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Store\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605030945426_InitialCreate.resx">

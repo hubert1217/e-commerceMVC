@@ -1,0 +1,16 @@
+﻿@using e_commerceMVC.Infrastructure
+@model IEnumerable<e_commerceMVC.Models.Kategory>
+
+<nav class="genres-vertical">
+    <ul>
+        @foreach (var kategory in Model)
+        {
+            <li>
+                <a href="@Url.Action("List", "Store", new { kategoryname=kategory.Name.ToString() })" 
+                   style="background-image:url(@Url.KategoryIconPath(kategory.IconFileName));" >
+                    @kategory.Name
+                    </a>
+            </li>
+        }
+    </ul>
+</nav>
