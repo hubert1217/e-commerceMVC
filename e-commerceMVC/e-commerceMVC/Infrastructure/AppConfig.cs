@@ -22,6 +22,18 @@ namespace e_commerceMVC.Infrastructure
         }
 
 
+        private static string _photosFolderRelative = ConfigurationManager.AppSettings["PhotosFolder"];
+
+        public static string PhotosFolderRelative 
+        {
+            get 
+            {
+                return _photosFolderRelative;
+            }
+        }
+
+
+
 
     }
 }

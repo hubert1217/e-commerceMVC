@@ -1,4 +1,5 @@
 ﻿@model e_commerceMVC.ViewModels.HomeViewModel
+@using e_commerceMVC.Infrastructure
 @{
 
     ViewBag.Title = "Witaj w sklepie";
@@ -11,8 +12,9 @@
         {
             <li>
                 <a href="@Url.Action("List", "Store", new { kategoryname = kategory.Name.ToLower() })"
-                   style="background-image:url(../Content/Genre-icons/alternative.png); ">
+                   style="background-image:url(@Url.KategoryIconPath(kategory.IconFileName)); ">
                     @kategory.Name
+                  
                 </a>
             </li>
         }
