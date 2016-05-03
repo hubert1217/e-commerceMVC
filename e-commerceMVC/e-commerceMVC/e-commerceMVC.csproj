@@ -128,6 +128,7 @@
     <Content Include="Content\Images\spodigly-logo-main.png" />
     <Content Include="Content\Images\twitter-share.png" />
     <Content Include="Content\Images\upload.png" />
+    <Content Include="Content\Kategory-icons\alternative.png" />
     <Content Include="Content\Site-prototype.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
@@ -153,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AppConfig.cs" />
     <Compile Include="Migrations\201605030945426_InitialCreate.cs" />
     <Compile Include="Migrations\201605030945426_InitialCreate.Designer.cs">
       <DependentUpon>201605030945426_InitialCreate.cs</DependentUpon>

@@ -11,7 +11,7 @@ namespace e_commerceMVC.Models
         public int KategoryId { get; set; }
         public string ProductName { get; set; }
         public DateTime DateAdded { get; set; }
-        public string CovertFileName { get; set; }
+        public string ProductFileName { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
         public bool IsBestseller { get; set; }

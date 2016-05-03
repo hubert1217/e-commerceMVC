@@ -1,125 +1,114 @@
-﻿@{
-    
+﻿@model e_commerceMVC.ViewModels.HomeViewModel
+@{
+
     ViewBag.Title = "Witaj w sklepie";
-    
+
 }
 
+<nav class="genres-horizontal">
+    <ul>
+        @foreach (var kategory in Model.Kategories)
+        {
+            <li>
+                <a href="@Url.Action("List", "Store", new { kategoryname = kategory.Name.ToLower() })"
+                   style="background-image:url(../Content/Genre-icons/alternative.png); ">
+                    @kategory.Name
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
+<section>
+    <ul class="ThreeColumnsCoversList large-cover-list">
+        <li>
+            <article>
+                <a class="addtocartlink" href="aaaa">
+                    <img src="../Content/Images/cart.png" />
+                </a>
+                <a class="productdetailslink" href="asd">
+                    <div class="newFlag"></div>
+                    <img class="album-cover" src="../Content/Covers/1.png" />
+                    <h1>
+                        Testowy obrazek
+                    </h1>
+                </a>
+            </article>
+        </li>
+        <li>
+            <article>
+                <a class="addtocartlink" href="aaaa">
+                    <img src="../Content/Images/cart.png" />
+                </a>
+                <a class="productdetailslink" href="asd">
+                    <div class="newFlag"></div>
+                    <img class="album-cover" src="../Content/Covers/2.png" />
+                    <h1>
+                        Testowy obrazek
+                    </h1>
+                </a>
+            </article>
+        </li>
+        <li>
+            <article>
+                <a class="addtocartlink" href="aaaa">
+                    <img src="../Content/Images/cart.png" />
+                </a>
+                <a class="productdetailslink" href="asd">
+                    <div class="newFlag"></div>
+                    <img class="album-cover" src="../Content/Covers/3.png" />
+                    <h1>
+                        Testowy obrazek
+                    </h1>
+                </a>
+            </article>
+        </li>
+    </ul>
+</section>
+<section>
+    <ul class="ThreeColumnsCoversList large-cover-list">
+        <li>
+            <article>
+                <a class="addtocartlink" href="aaaa">
+                    <img src="../Content/Images/cart.png" />
+                </a>
+                <a class="productdetailslink" href="asd">
+                    <div class="bestsellerFlag"></div>
+                    <img class="album-cover" src="../Content/Covers/1.png" />
+                    <h1>
+                        Testowy obrazek
+                    </h1>
+                </a>
+            </article>
+        </li>
+        <li>
+            <article>
+                <a class="addtocartlink" href="aaaa">
+                    <img src="../Content/Images/cart.png" />
+                </a>
+                <a class="productdetailslink" href="asd">
+                    <div class="bestsellerFlag"></div>
+                    <img class="album-cover" src="../Content/Covers/2.png" />
+                    <h1>
+                        Testowy obrazek
+                    </h1>
+                </a>
+            </article>
+        </li>
+        <li>
+            <article>
+                <a class="addtocartlink" href="aaaa">
+                    <img src="../Content/Images/cart.png" />
+                </a>
+                <a class="productdetailslink" href="asd">
+                    <div class="bestsellerFlag"></div>
+                    <img class="album-cover" src="../Content/Covers/3.png" />
+                    <h1>
+                        Testowy obrazek
+                    </h1>
+                </a>
+            </article>
+        </li>
+    </ul>
+</section>
 
-    <nav class="genres-horizontal">
-        <ul>
-            <li>
-                <a>
-                    Komputery
-                </a>
-            </li>
-            <li>
-                <a>
-                    Laptopy
-                </a>
-            </li>
-            <li>
-                <a>
-                    Monitory
-                </a>
-            </li>
-            <li>
-                <a>
-                    Inne
-                </a>
-            </li>
-         </ul>
-    </nav>
-    <section>
-        <ul class="ThreeColumnsCoversList large-cover-list">
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="newFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/1.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="newFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/2.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="newFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/3.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-        </ul>
-    </section>
-    <section>
-        <ul class="ThreeColumnsCoversList large-cover-list">
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="bestsellerFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/1.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="bestsellerFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/2.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="bestsellerFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/3.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-        </ul>
-    </section>
-  
 
