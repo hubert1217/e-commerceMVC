@@ -18,11 +18,11 @@ namespace e_commerceMVC.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
-            //Kategory nowa = new Kategory { Name = "Laptopy", Description = "Opis kategorii", IconFileName = "1.png" };
-            //db.Kategories.Add(nowa);
-            //db.SaveChanges();
+            var kategories = db.Kategories.ToList();
 
-            var kategoryList = db.Kategories.ToList();
+            var newArrivals = db.Products.Where(a => !a.IsHidden).OrderByDescending(a => a.DateAdded).Take(3).ToList(); //Listowanie na stronie głównej 3 dodanych nowych produktów
+
+            var bestsellers = db.Products.Where(a => !a.IsHidden && a.IsBestseller).OrderBy(g => Guid.NewGuid()).Take(3).ToList(); // Listowanie na stronie głównej 3 losowych produków które sa bestselerami 
 
             return View();
         }

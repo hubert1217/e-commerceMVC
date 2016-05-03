@@ -1,22 +1,24 @@
-﻿using e_commerceMVC.Models;
+﻿using e_commerceMVC.Migrations;
+using e_commerceMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Data.Entity.Migrations;
 
 namespace e_commerceMVC.DAL
 {
-    public class StoreInitializer : DropCreateDatabaseAlways<StoreContext>
+    public class StoreInitializer : MigrateDatabaseToLatestVersion<StoreContext, Configuration>
     {
-        protected override void Seed(StoreContext context)
-        {
-            SeedStoreData(context);
+        //protected override void Seed(StoreContext context)
+        //{
+        //    SeedStoreData(context);
 
-            base.Seed(context);
-        }
+        //    base.Seed(context);
+        //}
 
-        private void SeedStoreData(StoreContext context)
+        public static void SeedStoreData(StoreContext context)
         {
             var kategories = new List<Kategory>
             {
@@ -26,7 +28,7 @@ namespace e_commerceMVC.DAL
                 new Kategory() {KategoryId=4, Name = "Myszki", IconFileName="4.png"},
             };
 
-            kategories.ForEach(g => context.Kategories.Add(g));
+            kategories.ForEach(g => context.Kategories.AddOrUpdate(g));
             context.SaveChanges();
 
 
@@ -40,7 +42,7 @@ namespace e_commerceMVC.DAL
                 new Product() {ProductId = 6,KategoryId = 2, ProductName = "Dell 37", DateAdded= new DateTime(2010,09,8), CovertFileName="1.png",Description="Zwykły monitor",Price=1200,IsBestseller=false}
             };
 
-            products.ForEach(a => context.Products.Add(a));
+            products.ForEach(a => context.Products.AddOrUpdate(a));
             context.SaveChanges();
         }
     }

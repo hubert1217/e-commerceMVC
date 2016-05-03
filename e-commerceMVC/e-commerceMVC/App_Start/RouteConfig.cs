@@ -15,7 +15,7 @@ namespace e_commerceMVC
 
             routes.MapRoute(
                 name:"ProductDetails",
-                url:"album-{id}.html",
+                url:"product-{id}.html",
                 defaults: new {controller = "Store", action = "Details" }
             );
 
