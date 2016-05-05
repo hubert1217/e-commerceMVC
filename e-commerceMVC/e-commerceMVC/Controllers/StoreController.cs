@@ -47,5 +47,17 @@ namespace e_commerceMVC.Controllers
             return PartialView("_KategoriesMenu",kategories);
         }
 
+
+
+        public ActionResult ProductSuggestions(string term) 
+        {
+            var products = this.db.Products.Where(a => !a.IsHidden && a.ProductName.ToLower().Contains(term.ToLower()))
+                .Take(5).Select(a => new { label = a.ProductName });
+
+            return Json(products, JsonRequestBehavior.AllowGet);
+        }
+
+
+
 	}
 }
