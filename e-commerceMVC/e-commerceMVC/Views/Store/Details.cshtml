@@ -1,24 +1,22 @@
 ﻿@model e_commerceMVC.Models.Product
 @using e_commerceMVC.Infrastructure
-    @{
-        ViewBag.Title = "Details";
-        Layout = "~/Views/Shared/_StoreLayout.cshtml";
-    }
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
 
 <div id="productlist-content">
     @Html.Action("KategoriesMenu")
 
     <div id="productlist-rightsection">
         <div id="breadcrumb-section"></div>
-            <img src="../Content/Images/home-small.png"/>
-            <a href="nav">
-                Start > Kategoria
-            </a>
+        <img src="../Content/Images/home-small.png" />
+        @Html.MvcSiteMap().SiteMapPath()
     </div>
 
     <section id="product-details-section">
         <div id="product-details-left">
-            <img src="@Url.ProductPhotoPath(Model.ProductFileName)"/>
+            <img src="@Url.ProductPhotoPath(Model.ProductFileName)" />
 
             <div id="product-details-share">
                 <a href="fbshare"></a>
