@@ -31,5 +31,25 @@ namespace e_commerceMVC.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+
+
+        public ActionResult Register() 
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model) 
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            else 
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
 	}
 }

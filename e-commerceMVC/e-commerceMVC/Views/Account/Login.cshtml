@@ -24,11 +24,11 @@
                 </td>
             </tr>
             <tr>
-                <td>@Html.LabelFor(o=>o.Password,"Hasło")</td>
+                <td>@Html.LabelFor(o => o.Password, "Hasło")</td>
                 <td>
-                    @Html.PasswordFor(o=>o.Password)
+                    @Html.PasswordFor(o => o.Password)
                     <div class="login-validation-message">
-                        @Html.ValidationMessageFor(o=>o.Password)
+                        @Html.ValidationMessageFor(o => o.Password)
                     </div>
                 </td>
                 <td></td>
@@ -36,9 +36,9 @@
             <tr>
                 <td colspan="3">
                     <div class="checkbox" style="margin-bottom: 10px;">
-                        @Html.CheckBoxFor(m => m.RememberMe, new { @checked="checked"})
+                        @Html.CheckBoxFor(m => m.RememberMe, new { @checked = "checked" })
                     </div>
-                    <input type="submit" value="Zaloguj" class="submitLink" style="height:40px;"/>
+                    <input type="submit" value="Zaloguj" class="submitLink" style="height:40px;" />
                 </td>
             </tr>
         </table>
@@ -49,6 +49,10 @@
     </div>
 </div>
 
-@section ScriptsBottom{
-    <script></script>
+@section ScriptsBottom
+    {
+
+    <script src="~/Scripts/jquery-2.2.3.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 }
