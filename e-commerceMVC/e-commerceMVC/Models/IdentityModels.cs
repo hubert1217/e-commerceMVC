@@ -9,7 +9,7 @@ using System.Web;
 
 namespace e_commerceMVC.Models
 {
-    public class ApplicationUser:IdentityUser
+    public class ApplicationUser : IdentityUser
     {
         public virtual ICollection<Order> Orders { get; set; }
 
