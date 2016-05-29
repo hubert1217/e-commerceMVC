@@ -110,7 +110,7 @@ namespace e_commerceMVC.Infrastructure
             var cart = this.GetCart();
 
             newOrder.DateCreated = DateTime.Now;
-            //newOrder.UserId = userId;
+            newOrder.UserId = userId;
 
             this.db.Orders.Add(newOrder);
 

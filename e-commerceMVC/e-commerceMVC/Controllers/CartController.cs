@@ -25,19 +25,7 @@ namespace e_commerceMVC.Controllers
         private StoreContext db = new StoreContext();
 
 
-        private ApplicationUserManager _userManager;
-
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
+        
 
         public CartController()
         {
@@ -87,7 +75,19 @@ namespace e_commerceMVC.Controllers
             return Json(result);
         }
 
+        private ApplicationUserManager _userManager;
 
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
 
         public async Task<ActionResult> Checkout()
         {
@@ -111,6 +111,35 @@ namespace e_commerceMVC.Controllers
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Checkout", "Cart") });
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Checkout(Order orderdetails)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = User.Identity.GetUserId();
+
+                var newOrder = shoppingCartManager.CreateOrder(orderdetails, userId);
+
+                var user = await UserManager.FindByIdAsync(userId);
+                TryUpdateModel(user.UserData);
+                await UserManager.UpdateAsync(user);
+
+                shoppingCartManager.EmptyCart();
+
+                return RedirectToAction("OrderConfirmation");
+            }
+            else
+            {
+                return View(orderdetails);
+            }
+        }
+
+
+        public ActionResult OrderConfirmation()
+        {
+            return View();
+
+        }
 
 
 
