@@ -31,6 +31,8 @@ namespace e_commerceMVC.Controllers
             Error
         }
 
+        StoreContext db = new StoreContext();
+
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
         {
@@ -247,6 +249,38 @@ namespace e_commerceMVC.Controllers
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isPersistent }, await user.GenerateUserIdentityAsync(UserManager));
         }
 
+
+        public ActionResult OrdersList()
+        {
+            bool isAdmin = User.IsInRole("Admin");
+            ViewBag.UserIsAdmin = isAdmin;
+
+            IEnumerable<Order> userOrders;
+
+            // For admin users - return all orders
+            if (isAdmin)
+            {
+                userOrders = db.Orders.Include("OrderItems").
+                    OrderByDescending(o => o.DateCreated).ToArray();
+            }
+            else
+            {
+                var userId = User.Identity.GetUserId();
+                userOrders = db.Orders.Where(o => o.UserId == userId).Include("OrderItems").
+                    OrderByDescending(o => o.DateCreated).ToArray();
+            }
+
+            return View(userOrders);
+        }
+
+        public OrderState ChangeOrderState(Order order) 
+        {
+            Order orderToModify = db.Orders.Find(order.OrderId);
+            orderToModify.OrderState = order.OrderState;
+            db.SaveChanges();
+
+            return order.OrderState;
+        }
 
     }
 }

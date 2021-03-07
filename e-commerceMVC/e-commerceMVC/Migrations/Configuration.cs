@@ -18,6 +18,7 @@ namespace e_commerceMVC.Migrations
         {
 
             StoreInitializer.SeedStoreData(context);
+            StoreInitializer.InitializeIdentityForEF(context);
 
             //  This method will be called after migrating to the latest version.
 

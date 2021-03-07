@@ -41,8 +41,10 @@ namespace e_commerceMVC.Models
 
     public enum OrderState 
     { 
+        [Display(Name="nowe")]
         New,
 
+        [Display(Name = "wysłane")]
         Shipped
     }
 }

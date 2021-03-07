@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+@using e_commerceMVC.Infrastructure
+<div id="productlist-content">
+
+    @Html.Action("KategoriesMenu")
+
+    <div id="productlist-rightsection">
+        <div id="breadcrumb-section">
+            <img src="@Url.Content("~/Content/Images/home-small.png")" />
+            @Html.MvcSiteMap().SiteMapPath()
+
+
+            <form id="search-form">
+                <input id="search-filter" type="search" name="searchQuery"
+                       data-autocomplete-source="@Url.Action("ProductSuggestions")"
+                       placeholder="Szukaj..."/>
+                <input type="submit" value=""/>
+            </form>
+        </div>
+
+        @Html.Partial("_ProductList")
+
+    </div>
+</div>
+
+@section ScriptsBottom{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+}
